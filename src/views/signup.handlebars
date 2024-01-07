@@ -1,0 +1,28 @@
+<h1>SIGN UP</h1>
+
+<form action="/api/sessions/signup" method="post">
+    <label for="first_name">First Name</label>
+    <input type="text" id="first_name" name="first_name">
+    <label for="last_name">Last Name</label>
+    <input type="text" id="last_name" name="last_name">
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email">
+    <label for="password">Password</label>
+    <input type="text" id="password" name="password">
+    <button type="submit">LOGIN</button>
+</form>
+
+<h3>OR</h3>
+
+
+<br><br>
+<button onclick="location.href='/api/sessions/auth/github'">SIGNUP WITH GITHUB</button>
+
+<h3>OR</h3>
+
+
+<div>
+    <p>Already have an account?</p>
+    <a href="/login">Login</a>
+</div>
+

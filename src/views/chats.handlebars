@@ -1,0 +1,16 @@
+<h1>All chats</h1>
+{{#if chats}}
+    {{#each chats}}
+        <hr>
+        <div>
+            <a href="/chat/{{this._id}}">{{this._id}}</a>
+        </div>
+    {{/each}}
+{{else}}
+    <h1>NO HAY CHATS DISPONIBLES</h1>   
+{{/if}}
+
+
+<form action="/api/chats/create" method="post">
+    <button type="submit">NEW CHAT</button>
+</form>

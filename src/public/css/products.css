@@ -1,0 +1,27 @@
+.products.__container{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.create_product.__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 3rem;
+    border: 1px solid black;
+    height:fit-content;
+}
+
+.show_products.__list{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.prod_btns{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

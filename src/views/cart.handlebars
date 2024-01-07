@@ -1,0 +1,27 @@
+{{!-- <h1>CART</h1>
+{{#if cart}}
+    {{#each cart}}
+        <h1>{{cart.product}}</h1>
+        <hr>
+        <div>
+            <h2>{{product.title}} | Quantity:{{quantity}}</h2>
+        </div>
+    {{/each}}
+{{else}}
+    <h1>THE CART IS EMPTY</h1>   
+{{/if}} --}}
+
+<h1>CART</h1>
+<hr>
+ {{#each cart}}
+        <div>
+            <h2>{{this.product.title}}</h2>
+            <p>Description: {{this.product.description}}</p>
+            <p>Price: {{this.product.price}}</p>
+            <p>Quantity: {{this.quantity}}</p>
+            <p>Category: {{this.product.category}}</p>
+            <p>Stock: {{this.product.stock}}</p>
+            <p>Status: {{#if this.product.status}}Available{{else}}Unavailable{{/if}}</p>
+            <hr>
+        </div>
+{{/each}}

@@ -1,0 +1,30 @@
+<div style="display: flex; flex-direction: column; align-items: center">
+    <h1>HOME</h1>
+
+    <div style="display: flex; flex-direction: column; align-items: center">
+        <h3>En esta página encontraras los accesos a</h3>
+        <h3>las diferentes funcionalidades de esta entrega.</h3>
+    </div>
+</div>
+
+<div>
+
+
+<ul>
+    {{#if user}}
+        <li><h1>WELCOME {{user.first_name}}</h1></li>
+        <li><a href="/api/sessions/logout">LOGOUT</a></li>
+    {{else}}
+        <li><a href="/signup">SIGN UP</a></li>
+        <li><a href="/login">LOGIN</a></li>
+    {{/if}}
+    <li>
+        <form action="/api/carts/" method="post">
+            <button type="submit">CREATE CART</button>
+        </form>
+    </li>
+    <li>
+        <a href="/chats"><button>CHATS</button></a>    
+    </li>
+    
+</ul>

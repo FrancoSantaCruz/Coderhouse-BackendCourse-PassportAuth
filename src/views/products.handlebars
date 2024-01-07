@@ -1,0 +1,102 @@
+{{!-- CREATE PRODUCT --}}
+<div class="products __container">
+    <section class="create_product __container">
+        <h1>ADD A PRODUCT</h1>
+        <form action="/api/products/" class="create_product __form" id="create_product_form" method="post">
+            <div>
+                <p>Title</p>
+                <input type="text" name="title" id="title">
+            </div>
+            <div>
+                <p>Description</p>
+                <input type="" name="description" id="description">
+            </div>
+            <div>
+                <p>Code</p>
+                <input type="number" name="code" id="code">
+            </div>
+            <div>
+                <p>Price</p>
+                <input type="number" name="price" id="price" min="0">
+            </div>
+            <div>
+                <p>Status</p>
+                <input type="radio" id="disponible" name="status" value="true">
+                <label for="disponible">Disponible</label><br>
+                <input type="radio" id="noDisponible" name="status" value="false">
+                <label for="noDisponible">No Disponible</label><br>
+            </div>
+            <div>
+                <p>Stock</p>
+                <input type="number" name="stock" id="stock" min="0">
+            </div>
+            <div>
+                <p>Category</p>
+                <input type="radio" id="alimento" name="category" value="alimento">
+                <label for="alimento">Alimentos</label><br>
+                <input type="radio" id="ropa" name="category" value="ropaYaccesorios">
+                <label for="ropa">Ropa y Accesorios</label><br>
+                <input type="radio" id="electrodomesticos" name="category" value="electrodomestico">
+                <label for="electrodomesticos">Electrodomésticos</label>
+            </div>
+            <div>
+                <p>Thumbnail</p>
+                <input type="text" name="thumbnail" id="thumbnail">
+            </div>
+            <button type="submit">CREATE</button>
+        </form>
+    </section>
+
+
+    {{!-- SHOW PRODUCTS CREATED --}}
+    <section class="show_products __container">
+        <h1>Catálogo de Productos</h1>
+        <hr>
+        <div id="show_products_list" class="show_products __list">
+            {{#each products}}
+            <div>
+                <h2>{{this.title}}</h2>
+                <p>Description: {{this.description}}</p>
+                <p>Price: {{this.price}}</p>
+                <p>Quantity: {{this.quantity}}</p>
+                <p>Category: {{this.category}}</p>
+                <p>Stock: {{this.stock}}</p>
+                <p>Status: {{#if this.status}}Available{{else}}Unavailable{{/if}}</p>
+                <hr>
+            </div>
+            <div class="prod_btns">
+                <form action="api/carts/{{@root.cart_id}}/product/{{this._id}}" method="post">
+                    <button type="submit">ADD TO CART</button>
+                </form>
+                <form action="product/{{this._id}}" method="get">
+                    <button type="submit">SHOW DETAILS</button>
+                </form>
+            </div>
+            {{/each}}
+        </div>
+        <div>
+            {{#if info.hasPrevPage}}<a href="http://localhost:8080/products?page={{info.prevPage}}">Previous Page |
+            </a>{{/if}}
+            {{#if info.hasNextPage}}<a href="http://localhost:8080/products?page={{info.nextPage}}">Next Page</a>{{/if}}
+        </div>
+    </section>
+
+    <section>
+        <h1>{{user}} CART</h1>
+        {{#each cart}}
+        <hr>
+        <div>
+            <h3>{{this.product.title}}</h3>
+            <h4>{{this.product.description}}</h4>
+            <h4>( {{this.quantity}} units )</h4>
+        </div>
+        {{/each}}
+
+    </section>
+</div>
+
+{{!-- Final del código. --}}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/product.js"></script>

@@ -1,0 +1,22 @@
+
+{{!-- <h1 id="chat_id">CHAT: {{chat}}</h1> --}}
+
+<h3 id="username"></h3>
+<form id="chatForm" data-chat="{{chat}}">
+    <input type="text" name="chatMessage" id="chatMessage">
+    <input type="submit" value="ENVIAR">
+</form>
+
+<div id="chat">
+    {{#each messages}}
+            <div>
+                <p>{{this.autor.first_name}}: {{this.content}}</p>
+            </div>
+    {{/each}}
+</div>
+
+{{!-- Final del código. --}}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/chat.js"></script>

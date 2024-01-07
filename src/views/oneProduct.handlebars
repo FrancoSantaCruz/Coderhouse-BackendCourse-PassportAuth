@@ -1,0 +1,16 @@
+<h1>Product Details</h1>
+{{#if product}}
+    <hr>
+    <div>
+        <h2>{{product.title}}</h2>
+        <h3>{{product.description}}</h3>
+        <p>${{product.price}} | Cantidad disponible: {{product.stock}}</p>
+        {{#if product.status}}
+        <p>Disponible</p>
+        {{else}}
+        <p>No disponible</p>
+        {{/if}}
+    </div>
+{{else}}
+    <h1>EL PRODUCTO NO EXISTE</h1>   
+{{/if}}
